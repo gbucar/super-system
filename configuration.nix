@@ -15,7 +15,7 @@
   boot.loader.grub.device = "/dev/vda";
   boot.loader.grub.useOSProber = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "lol"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -42,6 +42,23 @@
     LC_TELEPHONE = "sl_SI.UTF-8";
     LC_TIME = "sl_SI.UTF-8";
   };
+
+  environment.plasma5.excludePackages = with pkgs.libsForQt5; [
+    dolphin
+    elisa
+    plasma-browser-integration
+    konsole
+    oxygen
+    gwenview
+    kate
+    kwallet
+    kwrited
+    okular
+    spectacle
+    plasma-systemmonitor
+    systemsettings
+    xterm
+  ];
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
@@ -88,9 +105,6 @@
     description = "lol";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-      firefox
-      kate
-    #  thunderbird
     ];
   };
 
@@ -100,8 +114,6 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
