@@ -66,7 +66,7 @@
       plasma-systemmonitor
       systemsettings
     ];
-  }
+  };
 
 
   # Configure keymap in X11
