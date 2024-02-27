@@ -43,28 +43,31 @@
     LC_TIME = "sl_SI.UTF-8";
   };
 
-  environment.plasma5.excludePackages = with pkgs.libsForQt5; [
-    dolphin
-    elisa
-    plasma-browser-integration
-    konsole
-    oxygen
-    gwenview
-    kate
-    kwallet
-    kwrited
-    okular
-    spectacle
-    plasma-systemmonitor
-    systemsettings
-  ];
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
   # Enable the KDE Plasma Desktop Environment.
   services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
+  services.xserver.desktopManager.plasma5 = {
+    enable = true;
+    excludePackages =  with pkgs.libsForQt5; [
+      dolphin
+      elisa
+      plasma-browser-integration
+      konsole
+      oxygen
+      gwenview
+      kate
+      kwallet
+      kwrited
+      okular
+      spectacle
+      plasma-systemmonitor
+      systemsettings
+    ];
+  }
+
 
   # Configure keymap in X11
   services.xserver = {
