@@ -57,7 +57,6 @@
     spectacle
     plasma-systemmonitor
     systemsettings
-    xterm
   ];
 
   # Enable the X11 windowing system.
